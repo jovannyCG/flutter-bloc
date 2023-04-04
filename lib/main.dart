@@ -13,8 +13,8 @@ class MyApp extends StatelessWidget {
       title: 'Material App',
       initialRoute: 'pagina1',
       routes: {
-        'pagina1':(_)=>PaginaPage(),
-        'pagina2':(_)=>Pagina2Page(),
+        'pagina1':(_)=>const PaginaPage(),
+        'pagina2':(_)=>const Pagina2Page(),
       },
     );
   }
