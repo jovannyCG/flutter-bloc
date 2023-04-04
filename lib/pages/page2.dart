@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_app/bloc/user/bloc/user_bloc.dart';
+import 'package:flutter_bloc_app/models/user.dart';
 
 
 class Pagina2Page extends StatelessWidget {
@@ -21,7 +24,8 @@ class Pagina2Page extends StatelessWidget {
               color: Colors.blue,
               child: const Text('establecer usuario',  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               onPressed: (){
-
+                final newUser = User(edad: 23, nombre: 'Jovanny',profesiones: 'ingeniero' );
+                BlocProvider.of<UserBloc>(context, listen: false).add(ActivateUserEvent(newUser));
             }),
             MaterialButton(
               color: Colors.blue,
