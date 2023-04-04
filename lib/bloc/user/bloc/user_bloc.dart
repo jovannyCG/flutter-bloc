@@ -13,5 +13,11 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
       emit(UserSetState(state.user!.copyWith(edad: event.age)));
     });
+
+    on<AddProfesion>((event, emit) {
+      if (!state.existUser) return;
+      final profs =[... state.user!.profesiones, event.profs];
+      emit(UserSetState(state.user!.copyWith(profesiones:profs)));
+    });
   }
 }
