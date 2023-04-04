@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_app/bloc/user/bloc/user_bloc.dart';
+import 'package:flutter_bloc_app/models/user.dart';
 
 class PaginaPage extends StatelessWidget {
   const PaginaPage({super.key});
@@ -15,8 +16,10 @@ class PaginaPage extends StatelessWidget {
       body: BlocBuilder<UserBloc, UserState>(
         builder: (context, state) {
           return state.existUser
-          ? const InfotmacionUsuarios()
-          : const Center(child: Text('no hay usuario'),);
+              ?  InfotmacionUsuarios(user: state.user!)
+              : const Center(
+                  child: Text('no hay usuario'),
+                );
         },
       ),
       floatingActionButton: FloatingActionButton(
@@ -27,8 +30,10 @@ class PaginaPage extends StatelessWidget {
 }
 
 class InfotmacionUsuarios extends StatelessWidget {
+  final User user;
   const InfotmacionUsuarios({
     super.key,
+    required this.user,
   });
 
   @override
@@ -39,23 +44,23 @@ class InfotmacionUsuarios extends StatelessWidget {
       padding: const EdgeInsetsDirectional.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          Text(
+        children: [
+          const Text(
             'general',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
-          Divider(),
-          ListTile(title: Text('nombre: ')),
+          const Divider(),
+          ListTile(title: Text('nombre: ${user.nombre}')),
           ListTile(
-            title: Text('edad: '),
+            title: Text('edad: ${user.edad}'),
           ),
-          Text(
+          const Text(
             'profesiones',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
-          Divider(),
-          ListTile(title: Text('preofesion1 : ')),
-          ListTile(
+          const Divider(),
+          ...user.profesiones.map((prof) => ListTile(title: Text(prof))).toList(),
+          const ListTile(
             title: Text('preofesion1 '),
           )
         ],

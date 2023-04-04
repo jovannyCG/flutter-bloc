@@ -24,7 +24,7 @@ class Pagina2Page extends StatelessWidget {
               color: Colors.blue,
               child: const Text('establecer usuario',  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
               onPressed: (){
-                final newUser = User(edad: 23, nombre: 'Jovanny',profesiones: 'ingeniero' );
+                final newUser = User(nombre: 'jovanny', edad: 25, profesiones: ['jovanny'], );
                 BlocProvider.of<UserBloc>(context, listen: false).add(ActivateUserEvent(newUser));
             }),
             MaterialButton(
