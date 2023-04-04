@@ -10,6 +10,7 @@ abstract class UserState {
     this.user});
 }
 
-/*class UserInitial extends UserState {
-  UserInitial(super.existUser, super.user);
-}*/
+class UserInitialState extends UserState {
+  //UserInitialState(super.existUser, super.user);
+  const UserInitialState(): super(existUser: false, user: null);
+}
