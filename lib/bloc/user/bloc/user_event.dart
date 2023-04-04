@@ -17,3 +17,7 @@ class AddProfesion extends UserEvent{
 
   AddProfesion(this.profs);
 }
+
+class DeleteUser extends UserEvent{
+ 
+}

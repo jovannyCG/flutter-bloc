@@ -12,6 +12,12 @@ class PaginaPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('pagina 1'),
         centerTitle: true,
+        actions: [
+          IconButton(onPressed: (){
+            BlocProvider.of<UserBloc>(context,listen: false).add(DeleteUser());
+          }, 
+          icon: const Icon(Icons.delete_outline))
+        ],
       ),
       body: BlocBuilder<UserBloc, UserState>(
         builder: (context, state) {
