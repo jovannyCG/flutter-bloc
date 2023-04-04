@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:singleton_estados/pages/page1.dart';
-import 'package:singleton_estados/pages/page2.dart';
+import 'package:flutter_bloc/pages/page1.dart';
+import 'package:flutter_bloc/pages/page2.dart';
 
 void main() => runApp(MyApp());
 
