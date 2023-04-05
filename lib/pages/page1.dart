@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc_app/pages/page2.dart';
+import 'package:get/get.dart';
 
 class PaginaPage extends StatelessWidget {
   const PaginaPage({super.key});
@@ -13,7 +15,8 @@ class PaginaPage extends StatelessWidget {
       body: const InfotmacionUsuarios(),
       floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pushNamed(context, 'pagina2')),
+          // onPressed: () => Navigator.pushNamed(context, 'pagina2')),
+          onPressed: () => Get.toNamed('pagina2')),
     );
   }
 }
